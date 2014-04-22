@@ -1,4 +1,4 @@
-image: bradrydzewski/ubuntu
+image: bradrydzewski/base
 script:
  - export DOKKU_HOST={{DOKKU_HOST}}
  - bash drone.sh
