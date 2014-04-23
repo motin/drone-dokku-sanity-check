@@ -25,6 +25,7 @@ echo "Done"
 echo
 echo "===== Check output of remote dokku commands ===="
 ssh dokku@$DOKKU_HOST run sanity-check /bin/bash /app/shell-script.sh
+ssh -t dokku@$DOKKU_HOST run sanity-check /bin/bash /app/shell-script.sh
 echo "Done"
 
 exit 0
