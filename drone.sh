@@ -13,7 +13,7 @@ git init
 git checkout -b master
 echo 'foo' > index.php
 git add index.php
-echo 'echo Hello; echo "bar" > index.php;' > shell-script.sh
+echo 'echo Hello; cat index.php; echo "bar" > index.php; cat index.php;' > shell-script.sh
 chmod +x shell-script.sh
 git add shell-script.sh
 git commit -m "Dokku sanity check commit"
