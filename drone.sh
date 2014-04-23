@@ -30,4 +30,16 @@ ssh -t dokku@$DOKKU_HOST run sanity-check /app/shell-script.sh
 ssh -t dokku@$DOKKU_HOST run sanity-check /bin/bash /app/shell-script.sh
 echo "Done"
 
+echo "===== Add docker options that works around missing output issue ===="
+ssh dokku@dokku.gapminder.org docker-options:add sanity-check "-t=false"
+ssh dokku@dokku.gapminder.org docker-options:add sanity-check "-i=false"
+echo "Done"
+
+echo "===== Check output of remote dokku commands again ===="
+ssh dokku@$DOKKU_HOST run sanity-check /app/shell-script.sh
+ssh dokku@$DOKKU_HOST run sanity-check /bin/bash /app/shell-script.sh
+ssh -t dokku@$DOKKU_HOST run sanity-check /app/shell-script.sh
+ssh -t dokku@$DOKKU_HOST run sanity-check /bin/bash /app/shell-script.sh
+echo "Done"
+
 exit 0
