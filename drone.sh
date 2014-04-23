@@ -24,7 +24,9 @@ git push dokku@$DOKKU_HOST:sanity-check master:master -f
 echo "Done"
 echo
 echo "===== Check output of remote dokku commands ===="
+ssh dokku@$DOKKU_HOST run sanity-check /app/shell-script.sh
 ssh dokku@$DOKKU_HOST run sanity-check /bin/bash /app/shell-script.sh
+ssh -t dokku@$DOKKU_HOST run sanity-check /app/shell-script.sh
 ssh -t dokku@$DOKKU_HOST run sanity-check /bin/bash /app/shell-script.sh
 echo "Done"
 
