@@ -11,9 +11,9 @@ mkdir /tmp/empty-git
 cd /tmp/empty-git
 git init
 git checkout -b master
-touch index.php
+echo 'foo' > index.php
 git add index.php
-echo 'echo Hello' > shell-script.sh
+echo 'echo Hello; echo "bar" > index.php;' > shell-script.sh
 chmod +x shell-script.sh
 git add shell-script.sh
 git commit -m "Dokku sanity check commit"
